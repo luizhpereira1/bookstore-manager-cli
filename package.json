@@ -1,0 +1,16 @@
+{
+  "name": "bookstore-manager-cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema CLI de gerenciamento de livraria desenvolvido em TypeScript",
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
