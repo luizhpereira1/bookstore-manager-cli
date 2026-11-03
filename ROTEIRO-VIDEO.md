@@ -1,29 +1,78 @@
-# Roteiro do vídeo — 5 a 10 minutos
+# Roteiro do vídeo — siga na ordem
 
-**Antes de gravar:** abra dois terminais. No primeiro, entre na pasta do projeto, rode `npm run dev` e deixe o menu visível. No segundo, abra `database/script.sql` e `database/DER.pdf` no computador; abra o pgAdmin com uma base de demonstração pronta. Grave a tela inteira e narre com suas palavras. Duração sugerida: 7 minutos.
+Duração sugerida: 5 a 8 minutos. Grave a tela e fale com calma. Não precisa decorar: acompanhe as falas abaixo.
 
-## 0:00–0:40 | Apresentação
-“Olá, meu nome é [seu nome]. Este é o BookStore Manager CLI, um sistema de terminal para gerenciar autores, livros, clientes e empréstimos. O objetivo do trabalho foi aplicar TypeScript, orientação a objetos, arquitetura em camadas e modelagem relacional.”
+## Antes de gravar
 
-## 0:40–1:30 | Organização do projeto
-Mostre `src/`: models contém as entidades; repositories guarda os dados em `Map`; services aplica as regras de negócio; controllers recebe as escolhas do terminal; menus organiza os textos; data contém os exemplos; utils valida os campos. Explique que os métodos são assíncronos e que a CLI mantém os dados em memória durante a execução.
+1. Abra o OBS. Fale uma frase e veja se a barra **Mic/Aux** se mexe. Depois minimize o OBS.
+2. Abra o PowerShell pelo menu Iniciar. Digite e pressione Enter:
 
-## 1:30–2:30 | Banco de dados
-Abra `database/DER.pdf`. Explique as cardinalidades: autor 1:N livros, livro 1:N empréstimos ao longo do tempo e cliente 1:N empréstimos. Mostre no pgAdmin a execução integral de `database/script.sql`, as quatro tabelas e as consultas. Aponte PK, FK, UNIQUE, CHECK e os relatórios de livros disponíveis/emprestados, livros por autor, empréstimos por livro e clientes com empréstimos ativos. Reforce que o banco é independente e não há conexão com a aplicação.
+   `cd "C:\Users\perei\Documents\Codex\2026-10-28\pr\outputs\BookStore-Manager-CLI"`
 
-## 2:30–3:00 | Inicialização
-No terminal, mostre `npm run dev`. A aplicação carrega exemplos: autores IDs 1 e 2; livros IDs 1 e 2; clientes IDs 1 e 2; empréstimo ativo ID 1. Navegue pelos menus e liste cada conjunto.
+3. Digite `npm run dev` e pressione Enter. Deixe o terminal aberto no menu inicial.
+4. Abra o OBS, clique em **Iniciar gravação**, espere dois segundos e minimize-o.
 
-## 3:00–5:45 | Operações e regras
-Demonstre cadastros, consultas, atualizações e remoções. Sugestão de fluxo: crie um autor de teste (ID 3); cadastre um livro de teste vinculado a ele; consulte e atualize o livro; remova esse livro e depois o autor. Cadastre um cliente de teste (ID 3), consulte, atualize e remova.
+## 1. Apresentação
 
-No menu de empréstimos, liste o empréstimo ID 1. O empréstimo ID 1 já usa um exemplar. Registre mais um empréstimo do livro ID 1; assim, os dois exemplares ficam emprestados e outra tentativa deve exibir “Livro indisponível para empréstimo.” Registre devoluções pelos IDs apresentados na listagem e mostre o aumento da disponibilidade.
+**Mostre:** o menu inicial no terminal.
 
-## 5:45–6:30 | Tratamento de erros
-Mostre pelo menos três casos: consultar um ID que não existe; tentar cadastrar cliente com e-mail inválido; tentar emprestar livro sem exemplares disponíveis. Explique que a mensagem aparece e o menu continua ativo.
+**Fale:** “Olá, meu nome é Luiz Henrique Pereira. Vou apresentar o BookStore Manager CLI, um programa de terminal para organizar autores, livros, clientes e empréstimos.”
 
-## 6:30–7:15 | Encerramento
-“Os principais desafios foram manter as relações entre as entidades coerentes e controlar a disponibilidade durante empréstimos e devoluções. O projeto ajudou a praticar a separação entre camadas, validações e consultas relacionais. Como próximos passos, seria possível persistir os dados, criar testes automatizados e conectar a aplicação a uma API ou banco de dados. Obrigado.”
+## 2. Abra e mostre as pastas do projeto
 
-**Depois da gravação:** publique como “não listado” no YouTube (ou compartilhe pelo Drive/OneDrive) e confira que o link abre em janela anônima. Cole o link do repositório e do vídeo no AVA antes do prazo.
+1. Pressione **Windows + E** para abrir o Explorador de Arquivos.
+2. Clique na barra de endereço no alto da janela. Pressione **Ctrl + A**, cole este caminho e pressione **Enter**:
 
+   `C:\Users\perei\Documents\Codex\2026-10-28\pr\outputs\BookStore-Manager-CLI`
+
+3. Mostre as pastas **src** e **database**. Não abra `node_modules`.
+4. Dê dois cliques em **src**. Mostre **models**, **repositories**, **services**, **controllers**, **menus**, **data** e **utils**. Clique em Voltar.
+5. Dê dois cliques em **database**. Mostre `script.sql` e `DER.pdf`. Abra o PDF, mostre o desenho e feche-o.
+6. Volte ao terminal com **Alt + Tab**.
+
+**Fale:** “O projeto foi feito com Node.js e TypeScript. Separei os modelos, as regras, os repositórios e a interação do terminal. A aplicação guarda os dados em memória enquanto está aberta.”
+
+## 3. Consulte os cadastros
+
+No terminal, digite cada número e pressione Enter. No menu interno, escolha **2** para listar; depois **0** para voltar.
+
+- Autores: **1**, depois **2**, mostre a lista, **0**.
+- Livros: **2**, depois **2**, mostre a lista, **0**.
+- Clientes: **3**, depois **2**, mostre a lista, **0**.
+
+**Fale:** “Aqui estão os dados de exemplo que o sistema carrega ao iniciar.”
+
+## 4. Faça cadastros de demonstração
+
+**Autor:** escolha **1**, depois **1**. Digite nome `Autor de demonstração` e nacionalidade `Brasileira`. Escolha **2** para mostrar. O ID será **3**. Escolha **0**.
+
+**Livro:** escolha **2**, depois **1**. Digite, um campo por vez: título `Livro de demonstração`; ISBN `9786500000001`; ano `2024`; ID do autor **3**; exemplares **1**. Escolha **2** para listar e **0** para voltar.
+
+**Cliente:** escolha **3**, depois **1**. Digite nome `Cliente de demonstração`, e-mail `luiz.demo@example.com` e telefone `11999990003`. Escolha **2** para listar e **0** para voltar.
+
+**Fale:** “Cadastrei exemplos de autor, livro e cliente. O livro está ligado ao autor pelo ID.”
+
+## 5. Empréstimo e devolução
+
+1. Escolha **4** e depois **3** para listar os empréstimos. O empréstimo de exemplo é o ID **1**.
+2. Escolha **1** para registrar. Informe livro **1**, cliente **2** e prazo **14** dias.
+3. Tente registrar outra vez livro **1**, cliente **2**, prazo **14**. Mostre a mensagem de indisponibilidade: os dois exemplares do livro estão emprestados.
+4. Escolha **3** para listar. Depois **2** para devolver e informe o ID do empréstimo novo (**2**). Liste de novo.
+
+**Fale:** “O programa controla os exemplares. Quando não há cópias disponíveis, impede o empréstimo. Na devolução, a cópia fica disponível novamente.”
+
+## 6. Banco de dados e encerramento
+
+1. Pressione **Alt + Tab** até o pgAdmin. Mostre a base `bookstore_manager` e as tabelas **autores**, **livros**, **clientes** e **emprestimos**. Se a árvore estiver fechada, clique na setinha ao lado do servidor, depois em Databases, na base e em Schemas > public > Tables.
+2. Volte ao Explorador com **Alt + Tab**, abra `database` e depois `DER.pdf` para mostrar o diagrama.
+
+**Fale:** “O PostgreSQL e a aplicação de terminal são partes separadas do projeto. O diagrama mostra como autores, livros, clientes e empréstimos se relacionam.”
+
+**Finalize:** “Com este projeto pratiquei TypeScript, organização do código, validações e modelagem do banco. Obrigado por assistir.”
+
+## Parar e entregar
+
+1. Volte ao OBS e clique em **Parar gravação**.
+2. No OBS, abra **Arquivo > Mostrar gravações** e localize o vídeo. Assista um trecho para confirmar que sua voz foi gravada.
+3. Publique o vídeo como **Não listado** no YouTube ou compartilhe pelo Drive/OneDrive.
+4. Entregue no AVA os links do repositório e do vídeo.
